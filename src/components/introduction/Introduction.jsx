@@ -3,6 +3,7 @@ import "./introduction.css";
 import InformationSummary from "./InformationSummary";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import cv from "../../assets/CV.pdf"
 
 // Information summary data
 const informationSummaryData = [
@@ -56,7 +57,7 @@ const Introduction = () => {
           <p className="text-center lg:text-start">
             <a
               className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]"
-              href="/files/my-cv.pdf"
+              href={cv}
               download="Arshpreet-Kaur-CV.pdf"
             >
               <FontAwesomeIcon icon={faDownload} /> Download CV

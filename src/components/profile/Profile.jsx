@@ -4,6 +4,8 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import SocialMedia from "../common/socialMedia/SocialMedia";
 import eyLogo from "../../assets/ey.jpeg";
 import kenResearchLogo from "../../assets/ken-research.jpeg";
+import summer from "../../assets/summer.pdf"
+import winter from "../../assets/winter.pdf"
 
 const profileData = [
   {
@@ -11,7 +13,7 @@ const profileData = [
     title: "Business Analyst Intern",
     timeline: "June 2025 - August 2025",
     img: eyLogo,
-    href: "/summer.pdf",
+    href: {summer},
     hrefName: "Business-Aanalyst-Intern-EY.pdf",
     location: "Gurugram, Haryana"
   },
@@ -20,7 +22,7 @@ const profileData = [
     title: "Project Intern",
     timeline: "February 2025 - May 2025",
     img: kenResearchLogo,
-    href: "/winter.pdf",
+    href: {winter},
     hrefName: "Project-Intern-Ken-Research.pdf",
     location: "Gurugram, Haryana"
   }
