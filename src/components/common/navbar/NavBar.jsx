@@ -52,7 +52,8 @@ const NavBar = () => {
 
   return (
     <div
-      className={`sticky top-0 ${
+      className={`sticky top-0 
+        ${
         position > 50
           ? "bg-soft-white border-b border-gray-300"
           : "bg-white border-white"

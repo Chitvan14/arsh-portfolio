@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { faFileExcel, faFilePdf, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faFileExcel, faFilePdf, faImage, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import project1 from "../../assets/images/portfolio-images/project1.jpeg"
 import project2 from "../../assets/images/portfolio-images/project2.jpeg"
+import project2_2 from "../../assets/images/portfolio-images/project2_2.jpeg"
 import project3 from "../../assets/images/portfolio-images/project3.jpeg"
 import project4 from "../../assets/images/portfolio-images/project4.jpeg"
 import project1PDF from "../../assets/images/portfolio-images/work/project1-certificate.pdf"
@@ -10,7 +11,7 @@ import project1Xlsx from "../../assets/images/portfolio-images/work/project1-xls
 const projectData = [
   {
     id: 1,
-    image: project1,
+    image: project2_2,
     category: "Data Analysis",
     title: "Data Analysis – Deloitte Job Simulation",
     description:
@@ -70,14 +71,13 @@ const projectData = [
     level: "Intermediate",
     duration: "1–2 hours",
     tools: "Tableau, Excel",
-    link: [
-      { href: project1PDF, download: "Goldman-Sach-Certificate.pdf" },
-      { href: project1Xlsx, download: "Goldman-Sach-Report.xlsx" },
+    link: [{ href: project2_2, download: "Deloitte-Certificate.jpeg" }, { href: project2, download: "Deloitte-Report.jpeg" },
+
     ],
   },
   {
     id: 2,
-    image: project2,
+    image: project1,
     category: "Business Analytics",
     title: "Excel Skills for Business – Job Simulation (Goldman Sachs)",
     description:
@@ -123,7 +123,11 @@ const projectData = [
     level: "Intermediate",
     duration: "3–4 hours",
     tools: "Microsoft Excel",
-    link: []
+    link: [
+      { href: project1PDF, download: "Goldman-Sach-Certificate.pdf" },
+      { href: project1Xlsx, download: "Goldman-Sach-Report.xlsx" },
+      { href: project1, download: "Goldman-Sach-Certificate.jpeg" },
+    ]
   },
   {
     id: 3,
@@ -189,7 +193,8 @@ const projectData = [
     level: "Intermediate",
     duration: "2–3 hours",
     tools: "Tableau",
-    link: []
+    link: [{ href: project3, download: "EV-Report.jpeg" },
+    ]
   },
   {
     id: 4,
@@ -253,7 +258,7 @@ const projectData = [
     level: "Intermediate",
     duration: "2–3 hours",
     tools: "Power BI",
-    link: []
+    link: [{ href: project4, download: "Churn-Analysis.jpeg" },]
   },
 ];
 
@@ -308,6 +313,7 @@ const Portfolio = () => {
   const getFileIcon = (href) => {
     if (href.endsWith(".pdf")) return faFilePdf;
     if (href.endsWith(".xlsx") || href.endsWith(".xls")) return faFileExcel;
+    if (href.endsWith(".jpeg")) return faImage;
     return faDownload;
   };
   return (
@@ -340,7 +346,7 @@ const Portfolio = () => {
 
       {/* Popup Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
             {/* Close Button */}
             <button
@@ -379,6 +385,8 @@ const Portfolio = () => {
                   Download File
                 </a>
               )} */}
+              <h3 className="text-lg font-semibold mt-4">Download</h3>
+
               {
                 selectedProject.link &&
                 selectedProject.link.map((file, index) => (
@@ -386,10 +394,11 @@ const Portfolio = () => {
                     key={index}
                     href={file.href}
                     download={file.download}
-                    className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-primary text-white rounded-lg hover:bg-primary-dark"
+                    className="inline-flex items-center mr-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark"
                   >
                     <FontAwesomeIcon icon={getFileIcon(file.href)} />
-                    {file.download ? `Download ${file.download}` : "Download File"}
+                    {/* <p>Download</p> */}
+                    {/* {file.download ? `Download ${file.download}` : "Download File"} */}
                   </a>
                 ))
               }
